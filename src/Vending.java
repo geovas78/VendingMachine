@@ -50,7 +50,7 @@ public class Vending
         
         switch(choice)
         {
-            case '1' : System.out.println("\nThe price of this item is Â£1.45");
+            case '1' : System.out.println("\nThe price of this item is £1.45");
                        System.out.print("Please put your money : ");
                        double moneyIn = keyboard.nextDouble();
                        if (moneyIn < 1.45)
@@ -67,18 +67,18 @@ public class Vending
                             gumTotalMoney = gumTotalMoney + 1.45;
                             System.out.println();
                             if(moneyIn > 1.45)
-                            System.out.println("Please take your Â£" + df.format((moneyIn - 1.45)) + " change");
+                            System.out.println("Please take your £" + df.format((moneyIn - 1.45)) + " change");
                         }
                         else
                         {
                             System.out.println();
                             System.out.println("Product sold out");
-                            System.out.println("You'll recieve your money back\nÂ£" + moneyIn);
+                            System.out.println("You'll recieve your money back\n£" + moneyIn);
                             System.out.println();
                         }
                        }
                         break;
-            case '2' : System.out.println("\nThe price of this item is Â£2.25");
+            case '2' : System.out.println("\nThe price of this item is £2.25");
                        System.out.print("Please put your money : ");
                        double moneyIn2 = keyboard.nextDouble();
                        if (moneyIn2 < 2.25)
@@ -95,17 +95,17 @@ public class Vending
                             chocoTotalMoney = chocoTotalMoney + 2.25;
                             System.out.println();
                             if(moneyIn2 > 2.25)
-                            System.out.println("Please take your Â£" + df.format(moneyIn2 - 2.25) + " change");
+                            System.out.println("Please take your £" + df.format(moneyIn2 - 2.25) + " change");
                         }
                         else
                         {
                             System.out.println("Product sold out");
-                            System.out.println("You'll recieve your money back\nÂ£" + moneyIn2);
+                            System.out.println("You'll recieve your money back\n£" + moneyIn2);
                             System.out.println();
                         }
                        }
                         break;
-            case '3' : System.out.println("\nThe price of this item is Â£1.80");
+            case '3' : System.out.println("\nThe price of this item is £1.80");
                        System.out.print("Please put your money : ");
                        double moneyIn3 = keyboard.nextDouble();
                        if (moneyIn3 < 1.80)
@@ -122,17 +122,17 @@ public class Vending
                             juiceTotalMoney = juiceTotalMoney + 1.80;
                             System.out.println();
                             if(moneyIn3 > 1.80)
-                            System.out.println("Please take your Â£" + df.format(moneyIn3 - 1.80) + " change");
+                            System.out.println("Please take yourÂ£" + df.format(moneyIn3 - 1.80) + " change");
                         }
                         else
                         {
                             System.out.println("Product sold out");
-                            System.out.println("You'll recieve your money back\nÂ£" + moneyIn3);
+                            System.out.println("You'll recieve your money back\n£" + moneyIn3);
                             System.out.println();
                         }
                        }
                         break;
-            case '4' : System.out.println("\nThe price of this item is Â£1.20");
+            case '4' : System.out.println("\nThe price of this item is £1.20");
                        System.out.print("Please put your money : ");
                        double moneyIn4 = keyboard.nextDouble();
                        if (moneyIn4 < 1.20)
@@ -149,12 +149,12 @@ public class Vending
                             popcornTotalMoney = popcornTotalMoney + 1.20;
                             System.out.println();
                             if(moneyIn4 > 1.20)
-                            System.out.println("Please take your Â£" + df.format(moneyIn4 - 1.20) + " change");
+                            System.out.println("Please take your £" + df.format(moneyIn4 - 1.20) + " change");
                         }
                         else
                         {
                             System.out.println("Product sold out");
-                            System.out.println("You'll recieve your money back\nÂ£" + moneyIn4);
+                            System.out.println("You'll recieve your money back\n£" + moneyIn4);
                             System.out.println();
                         }
                        }
@@ -176,16 +176,16 @@ public class Vending
             double chocoTotalMoneyIn, double juiceTotalMoneyIn, double popcornTotalMoneyIn)
     {
         System.out.println(gumIn + " items of gum sold");
-        System.out.println("Total amount of gums sold : Â£" + df.format(gumTotalMoneyIn));
+        System.out.println("Total amount of gums sold : £" + df.format(gumTotalMoneyIn));
         System.out.println();
         System.out.println(chocoIn + " items of chocolates sold");
-        System.out.println("Total amount of chocolates sold : Â£" + df.format(chocoTotalMoneyIn));
+        System.out.println("Total amount of chocolates sold : £" + df.format(chocoTotalMoneyIn));
         System.out.println();
         System.out.println(juiceIn + " items of juices sold");
-        System.out.println("Total amount of juices sold : Â£" + df.format(juiceTotalMoneyIn));
+        System.out.println("Total amount of juices sold : £" + df.format(juiceTotalMoneyIn));
         System.out.println();
         System.out.println(popcornIn + " items of popcorns sold");
-        System.out.println("Total amount of popcorns sold : Â£" + df.format(popcornTotalMoneyIn));
+        System.out.println("Total amount of popcorns sold : £" + df.format(popcornTotalMoneyIn));
         System.out.println();
         System.out.println();
     }
