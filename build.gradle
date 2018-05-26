@@ -1,14 +1,67 @@
 
-apply plugin 'java'
-apply plugin 'application'
-apply plugin 'eclipse'
-apply plugin 'idea'
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.github.jengelman.gradle.plugins:shadow:2.0.1'
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'com.github.johnrengelman.shadow'
 
 mainClassName = 'com.george.vending.RunVendingMachine'
 
 jar{
     
+  baseName = 'vending_v4'
+  
+  from("src/resources"){
+	include("**")
+  }
+  
+}
+
+shadowJar {
+	baseName = 'vending_v4'
+	version = null
+    classifier 'fat'
+    zip64 true
     
+    from("src/resources/"){
+        include("**")
+    }
+    manifest {
+        attributes(
+                'Main-Class': mainClassName,
+                'version': 'v4'
+        )
+    }
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+description = "Vending machin program running in a console"
+
+repositories {
+    
+    mavenLocal()
+    mavenCentral()
+    jcenter()
+    maven {
+        // gradle
+        url "https://plugins.gradle.org/m2/"
+    }
+}
+
+dependencies {
+    
+    //no dependencies at the moment
 }
 
 

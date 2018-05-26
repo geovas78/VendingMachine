@@ -8,12 +8,12 @@ import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class Vending {
-	static DecimalFormat df = new DecimalFormat("#####0.00");
-	static Scanner keyboard;
-	static String pound = "\u00a3";
-	static String euro = "\u20ac";
+	private DecimalFormat df = new DecimalFormat("#####0.00");
+	private Scanner keyboard;
+	private String pound = "\u00a3";
+	private String euro = "\u20ac";
 
-	public static void main(String[] args) {
+	public void run() {
 		keyboard = new Scanner(System.in);
 
 		ProductsCounter gumPrim = new ProductsCounter();
@@ -159,7 +159,7 @@ public class Vending {
 		System.out.println("Good Bye !!!");
 	}
 
-	static void total(int gumIn, int chocoIn, int juiceIn, int popcornIn, double gumTotalMoneyIn,
+	private void total(int gumIn, int chocoIn, int juiceIn, int popcornIn, double gumTotalMoneyIn,
 			double chocoTotalMoneyIn, double juiceTotalMoneyIn, double popcornTotalMoneyIn) {
 		System.out.println(gumIn + " items of gum sold");
 		System.out.println("Total amount of gums sold : " + pound + df.format(gumTotalMoneyIn));
@@ -176,7 +176,7 @@ public class Vending {
 		System.out.println();
 	}
 
-	static void refill(ProductsCounter gumPrimIn, ProductsCounter chocoPrimIn, ProductsCounter juicePrimIn,
+	private void refill(ProductsCounter gumPrimIn, ProductsCounter chocoPrimIn, ProductsCounter juicePrimIn,
 			ProductsCounter popcornPrimIn) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println();
@@ -217,7 +217,7 @@ public class Vending {
 		}
 	}
 
-	static void left(ProductsCounter gumPrimIn, ProductsCounter chocoPrimIn, ProductsCounter juicePrimIn,
+	private void left(ProductsCounter gumPrimIn, ProductsCounter chocoPrimIn, ProductsCounter juicePrimIn,
 			ProductsCounter popcornPrimIn) {
 		System.out.println();
 		System.out.println(gumPrimIn.getCount() + " items of gum left");

@@ -3,7 +3,8 @@ package com.george.vending;
 public class RunVendingMachine {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
+		new Vending().run();
 
 	}
 
