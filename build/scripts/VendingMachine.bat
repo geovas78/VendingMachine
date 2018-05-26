@@ -63,7 +63,7 @@ set CMD_LINE_ARGS=%*
 :execute
 @rem Setup the command line
 
-set CLASSPATH=%APP_HOME%\lib\vending_v4.jar
+set CLASSPATH=%APP_HOME%\lib\vending-1.0.jar
 
 @rem Execute VendingMachine
 "%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %VENDING_MACHINE_OPTS%  -classpath "%CLASSPATH%" com.george.vending.RunVendingMachine %CMD_LINE_ARGS%

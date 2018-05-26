@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.george.vending.models.ProductTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2018-05-26T15:47:28" hostname="George-PC" time="0.008">
+  <properties/>
+  <testcase name="testNegativePriceFromMethod" classname="com.george.vending.models.ProductTest" time="0.0"/>
+  <testcase name="testPriceFromMethodSetToZero" classname="com.george.vending.models.ProductTest" time="0.001"/>
+  <testcase name="testNegativeRefill" classname="com.george.vending.models.ProductTest" time="0.0"/>
+  <testcase name="testPositiveRefill" classname="com.george.vending.models.ProductTest" time="0.0"/>
+  <testcase name="testNegativeOrZeroPrice" classname="com.george.vending.models.ProductTest" time="0.0"/>
+  <testcase name="testCreatingProduct" classname="com.george.vending.models.ProductTest" time="0.0"/>
+  <testcase name="testRefillItems" classname="com.george.vending.models.ProductTest" time="0.0"/>
+  <testcase name="testSecondConstructor" classname="com.george.vending.models.ProductTest" time="0.001"/>
+  <testcase name="testManualCreationOfProduct" classname="com.george.vending.models.ProductTest" time="0.0"/>
+  <testcase name="testConstructorNegativeItemsSold" classname="com.george.vending.models.ProductTest" time="0.0"/>
+  <testcase name="testChangeProductName" classname="com.george.vending.models.ProductTest" time="0.001"/>
+  <testcase name="testConstructorNegativeItems" classname="com.george.vending.models.ProductTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

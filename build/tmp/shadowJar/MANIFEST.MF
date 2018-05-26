@@ -1,4 +1,0 @@
-Manifest-Version: 1.0
-version: v4
-Main-Class: com.george.vending.RunVendingMachine
-

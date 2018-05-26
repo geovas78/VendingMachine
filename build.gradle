@@ -1,47 +1,17 @@
 
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.github.jengelman.gradle.plugins:shadow:2.0.1'
-    }
-}
-
 apply plugin: 'java'
 apply plugin: 'application'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
-apply plugin: 'com.github.johnrengelman.shadow'
 
 mainClassName = 'com.george.vending.RunVendingMachine'
 
-jar{
-    
-  baseName = 'vending_v4'
-  
-  from("src/resources"){
-	include("**")
-  }
-  
-}
-
-shadowJar {
-	baseName = 'vending_v4'
-	version = null
-    classifier 'fat'
-    zip64 true
-    
-    from("src/resources/"){
-        include("**")
-    }
-    manifest {
-        attributes(
-                'Main-Class': mainClassName,
-                'version': 'v4'
-        )
-    }
-}
+jar { 
+        baseName = 'vending' 
+        version = '1.0' 
+        manifest { 
+                     attributes 'Main-Class': 'com.george.vending.RunVendingMachine' } 
+     }
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -60,8 +30,7 @@ repositories {
 }
 
 dependencies {
-    
-    //no dependencies at the moment
+    testCompile 'junit:junit:4.10'
 }
 
 
