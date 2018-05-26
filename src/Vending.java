@@ -8,10 +8,11 @@ import java.util.Scanner;
 public class Vending 
 { 
     static DecimalFormat df = new DecimalFormat("#####0.00");
+	private static Scanner keyboard;
     
     public static void main(String[] args) 
     {
-      Scanner keyboard = new Scanner(System.in);
+      keyboard = new Scanner(System.in);
       
       ProductsCounter gumPrim = new ProductsCounter();
       ProductsCounter chocoPrim = new ProductsCounter();
