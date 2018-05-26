@@ -1,3 +1,5 @@
+package com.george.vending;
+
 /**
  * @version modified 18/09/2012 at 15:58
  * @author Gogo
