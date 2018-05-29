@@ -50,4 +50,10 @@ build/libs/*
 /bin
 .gradle
 .settings
-build/**
+build/classes/*
+build/distributions/*
+build/reports/*
+build/resources/*
+build/scripts/*
+build/test-results/*
+build/temp/*
