@@ -53,6 +53,14 @@ public class ProductInventory implements Serializable{
 	public void addProduct(Product product) {
 		this.inventory.put(product.getProductName(), product);
 	}
+	
+	/**
+	 * remove a product from the inventory
+	 * @param product - product
+	 */
+	public void removeProduct(String productName) {
+		this.inventory.remove(productName);
+	}
 
 	@Override
 	public String toString() {
