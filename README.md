@@ -1,7 +1,7 @@
-## Build with gradle ##
+# Build with gradle #
 
-# $(master) VendingMachine		./gradle build #
+$(master) VendingMachine		./gradle build 
 
-## Running the program ##
+# Running the program #
 
-# $(master) VendingMachine		./java –jar build/libs/vending-1.0.jar
+$(master) VendingMachine		./java –jar build/libs/vending-1.0.jar
