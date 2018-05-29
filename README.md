@@ -1,2 +1,7 @@
-This is a simple java program that runs on the console
-and has been build with gradle
+## Build with gradle ##
+
+# $(master) VendingMachine		./gradle build #
+
+## Running the program ##
+
+# $(master) VendingMachine		./java –jar build/libs/vending-1.0.jar
