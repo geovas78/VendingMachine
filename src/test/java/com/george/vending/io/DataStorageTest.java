@@ -38,5 +38,28 @@ public class DataStorageTest {
 		assertTrue( 2 == inventory.getInventory().size());
 		assertEquals("bread", inventory.getProduct("bread").getProductName());
 	}
+	
+	@Test
+	public void testReuse() throws Exception {
+		
+		ProductInventory inventory = new ProductInventory();
+		inventory.addProduct(bread);
+		inventory.addProduct(butter);
+		
+		DataStorage.writeToFile(inventory, "src/test/resources/inventory.dat");
+		
+		ProductInventory inventory1 = DataStorage.readFromFile("src/test/resources/inventory.dat");
+		
+		assertTrue( 2 == inventory1.getInventory().size() );
+		
+		inventory.removeProduct("bread");
+		
+		DataStorage.writeToFile(inventory, "src/test/resources/inventory.dat");
+		
+		ProductInventory inventory2 = DataStorage.readFromFile("src/test/resources/inventory.dat");
+		
+		assertTrue( 1 == inventory2.getInventory().size() );
+		
+	}
 
 }

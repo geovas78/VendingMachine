@@ -7,6 +7,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -24,6 +25,13 @@ public class DataStorage {
 	private static String pathToFile = "src/main/resources";
 	private static String fileName = "inventory.dat";
 	
+	/**
+	 * 
+	 * @param inventory
+	 * @param pathIn
+	 * @throws FileNotFoundException
+	 * @throws ClassNotFoundException
+	 */
 	public static void writeToFile(ProductInventory inventory, String pathIn) throws FileNotFoundException, ClassNotFoundException {
 		String filePath = null;
 		if(pathIn == null) {
@@ -43,6 +51,13 @@ public class DataStorage {
 		}
 	}
 	
+	/**
+	 * 
+	 * @param pathIn - path
+	 * @return - productInventory
+	 * @throws ClassNotFoundException
+	 * @throws FileNotFoundException
+	 */
 	public static ProductInventory readFromFile(String pathIn) throws ClassNotFoundException, FileNotFoundException {
 		String filePath = null;
 		if(pathIn == null) {
@@ -62,6 +77,21 @@ public class DataStorage {
 			e.printStackTrace();
 		}
 		return inventory;
+	}
+	
+	/**
+	 * 
+	 * @return - path to the storage file
+	 */
+	public static String checkStorageExists() {
+		String storagePath;
+		Path path = Paths.get(pathToFile).toAbsolutePath();
+		if(Files.exists(path.resolve(fileName))) {
+			storagePath = path.resolve(fileName).toString();
+		}else {
+			storagePath = null;
+		}
+		return storagePath;
 	}
 
 }

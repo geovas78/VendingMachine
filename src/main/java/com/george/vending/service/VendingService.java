@@ -1,6 +1,6 @@
 package com.george.vending.service;
 
-import java.io.IOException;
+import java.io.FileNotFoundException;
 import java.text.DecimalFormat;
 import java.util.Scanner;
 
@@ -20,35 +20,42 @@ public class VendingService {
 	private DecimalFormat df = new DecimalFormat("#0.00");
 	private Scanner keyboard;
 	private String pound = "\u00a3";
-	@SuppressWarnings("unused")
 	private String euro = "\u20ac";
+	private String dollar = "\u0024";
+	private String currency;
 	private Scanner sc;
+	private String storagePath = DataStorage.checkStorageExists();
 	
 	/**
 	 * the main thread of the program
 	 */
 	public void run() {
-		ProductInventory inventory = new ProductInventory();
 		
-		// TODO: read and then after exit write to a file
-//		try {
-//			inventory = DataStorage.readFromFile("src/test/resources/inventory.dat");
-//		}catch(IOException | ClassNotFoundException e) {
-//			
-//		}
+		currency = pound;
+		
+		ProductInventory inventory = null;
+		if(storagePath == null) {
+			inventory = new ProductInventory();
+			
+			// create products
+			Product gum = new Product("gum", 1.45, 10);
+			Product chocolate = new Product("chocolate", 2.25, 10);
+			Product juice = new Product("juice", 1.80, 10);
+			Product popcorn = new Product("popcorn", 1.2, 10);
+
+			inventory.addProduct(gum);
+			inventory.addProduct(chocolate);
+			inventory.addProduct(juice);
+			inventory.addProduct(popcorn);
+		}else {
+			try {
+				inventory = DataStorage.readFromFile(storagePath);
+			} catch (ClassNotFoundException | FileNotFoundException e) {
+				e.printStackTrace();
+			}
+		}
 		
 		keyboard = new Scanner(System.in);
-		
-		// create products
-		Product gum = new Product("gum", 1.45, 10);
-		Product chocolate = new Product("chocolate", 2.25, 10);
-		Product juice = new Product("juice", 1.80, 10);
-		Product popcorn = new Product("popcorn", 1.2, 10);
-
-		inventory.addProduct(gum);
-		inventory.addProduct(chocolate);
-		inventory.addProduct(juice);
-		inventory.addProduct(popcorn);
 		
 		char choice;
 		
@@ -97,6 +104,12 @@ public class VendingService {
 				System.out.println("Choice 1 - 8 ONLY");
 			}
 		} while (choice != '8');
+		
+		try {
+			DataStorage.writeToFile(inventory, storagePath);
+		} catch (FileNotFoundException | ClassNotFoundException e) {
+			e.printStackTrace();
+		}
 
 		System.out.println("Good Bye !!!");
 		
@@ -110,7 +123,7 @@ public class VendingService {
 	 */
 	private void productChoice(String productName, ProductInventory inventory) {
 		Product product = inventory.getProduct(productName);
-		System.out.println("\nThe price of this item is " + pound + df.format(product.getPrice()));
+		System.out.println("\nThe price of this item is " + currency + df.format(product.getPrice()));
 		System.out.print("Please put your money : ");
 		double moneyIn = keyboard.nextDouble();
 		if (moneyIn < product.getPrice()) {
@@ -121,11 +134,11 @@ public class VendingService {
 				product.takeItem();
 				System.out.println();
 				if (moneyIn > product.getPrice())
-					System.out.println("Please take your " + pound + df.format((moneyIn - product.getPrice())) + " change");
+					System.out.println("Please take your " + currency + df.format((moneyIn - product.getPrice())) + " change");
 			} else {
 				System.out.println();
 				System.out.println("Product sold out");
-				System.out.println("You'll recieve your money back\n" + pound + df.format(moneyIn));
+				System.out.println("You'll recieve your money back\n" + currency + df.format(moneyIn));
 				System.out.println();
 			}
 		}
@@ -137,10 +150,10 @@ public class VendingService {
 	 * 
 	 * @param inventory
 	 */
-	private void total(ProductInventory inventory) {		
+	private void total(ProductInventory inventory) {
 		inventory.getInventory().forEach((name, product) -> {
 			System.out.println(product.getSoldItems() + " items of " + name +" sold");
-			System.out.println("Total amount of " + name +" sold : " + pound + df.format(product.getSoldTotal()));
+			System.out.println("Total amount of " + name +" sold : " + currency + df.format(product.getSoldTotal()));
 			System.out.println();
 		});
 		System.out.println();
