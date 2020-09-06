@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.text.DecimalFormat;
 import java.util.Scanner;
 
+import com.george.vending.Currencies;
 import com.george.vending.io.DataStorage;
 import com.george.vending.models.Product;
 import com.george.vending.models.ProductInventory;
@@ -19,19 +20,24 @@ public class VendingService {
 	
 	private DecimalFormat df = new DecimalFormat("#0.00");
 	private Scanner keyboard;
-	private String pound = "\u00a3";
-	private String euro = "\u20ac";
-	private String dollar = "\u0024";
-	private String currency;
+	private String currency = null;
 	private Scanner sc;
 	private String storagePath = DataStorage.checkStorageExists();
+	
+	public void run(String currency) {
+		this.currency = currency;
+		run();
+	}
 	
 	/**
 	 * the main thread of the program
 	 */
 	public void run() {
 		
-		currency = pound;
+		if(this.currency == null) {
+			// if not set, assign default, i.e. GBP
+			currency = Currencies.GBP;
+		}
 		
 		ProductInventory inventory = null;
 		if(storagePath == null) {

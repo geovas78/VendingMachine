@@ -30,6 +30,9 @@ repositories {
 }
 
 dependencies {
+	
+	compile group: 'commons-cli', name: 'commons-cli', version: '1.4'
+	
     testCompile 'junit:junit:4.10'
 }
 
